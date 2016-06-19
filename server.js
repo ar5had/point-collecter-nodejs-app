@@ -1,9 +1,30 @@
 'use strict';
 
-var express = require('express');
+var express = require('express'),
+    routes = require("./app/routes/index.js"), 
+    mongo = require("mongodb").MongoClient;
 
 var app = express();
 
-app.listen(8080, function () {
-    console.log('Listening on port 8080..');
+mongo.connect("mongodb://localhost:27017/dpPoints", function(err, database){
+   
+   if(err)
+        throw new Error("Database failed to connect");
+    
+    else
+        console.log("MongoDB sucessfully connected to localhost:27017");
+
+    
+    app.use('/public', express.static(process.cwd() + "/public"));
+    
+    app.use('/controllers', express.static(process.cwd() + "/app/controllers"));
+    
+    
+    
+    routes(app, database);
+    
+    app.listen(8080, function () {
+        console.log('Listening on port 8080..');
+    });
+
 });
