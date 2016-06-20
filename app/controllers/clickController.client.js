@@ -44,7 +44,7 @@
     deleteButton.addEventListener('click', function(){
        ajaxRequest('DELETE', apiUrl, function(){
            ajaxRequest('GET', apiUrl, updateClickCount);
-       }) 
+       });
     });
     
     
