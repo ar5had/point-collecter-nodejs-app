@@ -9,10 +9,11 @@ module.exports = function(app, db){
     
     app.route('/')
         .get(function(req, res){
-        res.sendFile(process.cwd() + '/public/index.html');  
+            res.sendFile(process.cwd() + '/public/index.html');  
         });
         
     app.route('/api/clicks')
-        .get(clickHandler.getClicks);
-    
+        .get(clickHandler.getClicks)
+        .post(clickHandler.addClicks)
+        .delete(clickHandler.resetClicks);
 };
