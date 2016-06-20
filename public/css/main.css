@@ -24,6 +24,7 @@ img {
     margin: 100px auto 0 auto;
     display: block;
     width: 200px;
+    height: 200px;
     border: solid 10px #334369;
     border-radius: 50%;
 }
