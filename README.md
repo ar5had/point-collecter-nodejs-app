@@ -1,3 +1,3 @@
 # point-collecter-nodejs-webapp
 
-It collects points for the picture that is being displayed.
+It collects point for the picture that is being displayed.
